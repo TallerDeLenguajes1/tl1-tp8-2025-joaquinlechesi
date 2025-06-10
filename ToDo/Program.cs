@@ -8,13 +8,15 @@ List<Tarea> tareasRealizadas = new List<Tarea>();
 
 int opcion, tareaID = 0, duracion;
 string descripcion;
+//Funciones funciones = new Funciones();
 
 for (int i = 0; i < 3; i++)
 {
+        Console.WriteLine("Tarea n° " + (i + 1));
         tareaID++;
-        // descripcion = Console.ReadLine();
-        // int.TryParse(Console.ReadLine(), out duracion);
-        Tarea nuevaTarea = new Tarea(tareaID, "Tarea numero " + (i + 1));
+        descripcion = Console.ReadLine();
+        int.TryParse(Console.ReadLine(), out duracion);
+        Tarea nuevaTarea = new Tarea(tareaID, descripcion, duracion);
         tareasPendientes.Add(nuevaTarea);
 }
 
@@ -41,14 +43,24 @@ do
                 if (tareasPendientes[i].TareaID == tareaID)
                 {
                     tareasRealizadas.Add(tareasPendientes[i]);
-
+                    tareasPendientes.Remove(tareasPendientes[i]);
                 }
             }
             break;
-        case 3:
+        case 2: // buscar tareas por descripcion
+            //funciones.buscarTarea(tareasPendientes);
+            Funciones.buscarTarea(tareasPendientes);
+            break;
+        case 3: // Listar las funciones
+            Console.WriteLine("Tareas pendientes:");
             for (int i = 0; i < tareasPendientes.Count; i++)
             {
                 Console.WriteLine("ID:" + tareasPendientes[i].TareaID + ", Descripcion:" + tareasPendientes[i].Descripcion);
+            }
+            Console.WriteLine("Tareas realizadas:");
+            for (int i = 0; i < tareasRealizadas.Count; i++)
+            {
+                Console.WriteLine("ID:" + tareasRealizadas[i].TareaID + ", Descripcion:" + tareasRealizadas[i].Descripcion);
             }
             break;
         default:

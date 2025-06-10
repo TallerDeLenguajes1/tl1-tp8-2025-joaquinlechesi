@@ -5,11 +5,11 @@ public class Tarea
     private int tareaID;
     private string descripcion;
     private int duracion;
-    public Tarea(int tareaID, string descripcion)
+    public Tarea(int TareaID_constructor, string Descripcion_constructor, int duracion_constructor)
     {
-        this.tareaID = tareaID;
-        this.descripcion = descripcion;
-        // this.duracion = duracion;
+        this.TareaID = TareaID_constructor;
+        this.Descripcion = Descripcion_constructor;
+        this.Duracion = duracion_constructor;
     }
     public int TareaID { get => tareaID; set => tareaID = value; }
     public string Descripcion { get => descripcion; set => descripcion = value; }
