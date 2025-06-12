@@ -9,29 +9,33 @@ public class Calculadora
         // get => dato;
         set => dato = value;
     }
-    List<Operacion> listaDeOperaciones;
+    private List<Operacion> listaDeOperaciones = new List<Operacion>();
+    public List<Operacion> ListaDeOperaciones
+    {
+        get => listaDeOperaciones;
+    }
     public void Sumar(double termino)
     {
-        dato = dato + termino;
         Operacion nueva = new Operacion(dato, termino, TipoOperacion.Suma);
+        dato = dato + termino;
         listaDeOperaciones.Add(nueva);
     }
     public void Restar(double termino)
     {
-        dato = dato - termino;
         Operacion nueva = new Operacion(dato, termino, TipoOperacion.Resta);
+        dato = dato - termino;
         listaDeOperaciones.Add(nueva);
     }
     public void Multiplicar(double termino)
     {
-        dato = dato * termino;
         Operacion nueva = new Operacion(dato, termino, TipoOperacion.Multiplicacion);
+        dato = dato * termino;
         listaDeOperaciones.Add(nueva);
     }
     public void Dividir(double termino)
     {
-        dato = dato / termino;
         Operacion nueva = new Operacion(dato, termino, TipoOperacion.Division);
+        dato = dato / termino;
         listaDeOperaciones.Add(nueva);
         // if (termino == 0)
         // {
@@ -69,18 +73,18 @@ public class Operacion
     public double Resultado()
     {
         double resultadoSalida;
-        switch ((int)operacion)
+        switch (operacion)
         {
-            case 1:
+            case TipoOperacion.Suma:
                 resultadoSalida = resultadoAnterior + nuevoValor;
                 break;
-            case 2:
+            case TipoOperacion.Resta:
                 resultadoSalida = resultadoAnterior - nuevoValor;
                 break;
-            case 3:
+            case TipoOperacion.Multiplicacion:
                 resultadoSalida = resultadoAnterior * nuevoValor;
                 break;
-            case 4:
+            case TipoOperacion.Division:
                 resultadoSalida = resultadoAnterior / nuevoValor;
                 break;
             default:
@@ -92,6 +96,10 @@ public class Operacion
     public double NuevoValor
     {
         get => nuevoValor;
+    }
+    public TipoOperacion TipoOperacion
+    {
+        get => operacion;
     }
     public Operacion(double ResultadoAnterior, double NuevoValor_constructor, TipoOperacion Operacion)
     {
