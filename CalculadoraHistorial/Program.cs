@@ -11,11 +11,11 @@ Calculadora calculadora1 = new Calculadora();
 calculadora1.Dato = numero;
 do
 {
-    Console.WriteLine("OPCIONES:\n1 para Sumar\n2 para Restar\n3 para Multiplicar\n4 para Dividir\n5 para limpiar el numer ingresado");
+    Console.WriteLine("OPCIONES:\n1 para Sumar\n2 para Restar\n3 para Multiplicar\n4 para Dividir\n5 para limpiar el numero ingresado");
     int.TryParse(Console.ReadLine(), out opcion);
     if (opcion != 0)
     {
-        Console.WriteLine("Ingrese un numero:");
+        Console.WriteLine("Ingrese un numero para realizar la operacion:");
     }
     switch (opcion)
     {
@@ -62,7 +62,7 @@ do
     }
 } while (opcion != 0);
 
-Console.WriteLine("Listado de operaciones:");
+Console.WriteLine("Historial de operaciones realizadas:");
 for (int i = 0; i < calculadora1.ListaDeOperaciones.Count; i++)
 {
     Console.WriteLine("Operacion: " + calculadora1.ListaDeOperaciones[i].TipoOperacion);

@@ -46,7 +46,9 @@ public class Calculadora
     }
     public void Limpiar()
     {
+        Operacion nueva = new Operacion(dato, 0, TipoOperacion.Limpiar);
         dato = 0;
+        listaDeOperaciones.Add(nueva);
     }
     public double Resultado
     {
